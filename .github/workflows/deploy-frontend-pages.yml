@@ -44,8 +44,8 @@ jobs:
           REACT_APP_BACKEND_URL: ""
         run: yarn build
 
-      - name: Add SPA fallback
-        run: cp build/index.html build/404.html
+      - name: Add static route pages
+        run: yarn pages:routes
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

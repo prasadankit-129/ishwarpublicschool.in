@@ -64,6 +64,7 @@
   "scripts": {
     "start": "craco start",
     "preview": "node scripts/serve-build.js",
+    "pages:routes": "node scripts/create-route-pages.js",
     "build": "craco build",
     "test": "craco test"
   },
