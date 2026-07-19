@@ -1,0 +1,73 @@
+{
+  "theme": "Light",
+  "mood": "Warm, Trustworthy, Elegantly Modern, Vibrant",
+  "color_palette": {
+    "primary": "#0F172A",
+    "secondary": "#EA580C",
+    "accent": "#F59E0B",
+    "background": "#FAFAFA",
+    "surface": "#FFFFFF",
+    "text_primary": "#1E293B",
+    "text_secondary": "#475569",
+    "border": "#E2E8F0",
+    "overlay": "rgba(0,0,0,0.4)"
+  },
+  "typography": {
+    "headings": {
+      "font_family": "Playfair Display, serif",
+      "weights": ["400", "600", "700"],
+      "usage": "Use for H1, H2, H3 to convey heritage, trust, and academic excellence. Apply tracking-tight for modern elegance."
+    },
+    "body": {
+      "font_family": "Manrope, sans-serif",
+      "weights": ["400", "500", "600"],
+      "usage": "Use for paragraphs, labels, and small text. Highly legible and modern."
+    }
+  },
+  "spacing_and_layout": {
+    "philosophy": "Generous spacing. Use p-8 to p-16 for section padding. Optical alignment over strict geometric centering.",
+    "grid_system": "Bento grids for features (Facilities, Branches). Asymmetrical layouts for About Us section.",
+    "borders_and_radius": "Rounded corners (rounded-2xl) for a friendly, welcoming feel. Soft ambient shadows (shadow-sm or shadow-md) for elevation."
+  },
+  "components_strategy": {
+    "marketing_pages": "Use raw HTML/Tailwind for structural layout of Home, About, Academics. Shadcn for Interactive elements like Forms, Dialogs, Carousels.",
+    "admin_dashboard": "Strict grid hierarchy. High density. Use Shadcn Table, Select, Dialog, Card. Cardless or subtle borders (border-border/40).",
+    "animations": "Framer Motion for scroll-triggered fade-ins (staggered). React-fast-marquee for the News/Notices scrolling ticker."
+  },
+  "images": {
+    "hero_building": {
+      "url": "https://images.pexels.com/photos/20200756/pexels-photo-20200756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Modern educational building exterior. Use for Hero or About Us background."
+    },
+    "students_classroom": {
+      "url": "https://images.pexels.com/photos/3231359/pexels-photo-3231359.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Indian schoolgirls in classroom. Use for Academics or Faculty section."
+    },
+    "playground": {
+      "url": "https://images.pexels.com/photos/8926842/pexels-photo-8926842.jpeg",
+      "description": "Children on modern playground equipment. Use for Facilities or Student Life section."
+    },
+    "events": {
+      "url": "https://images.pexels.com/photos/35493021/pexels-photo-35493021.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Kids in traditional clothing at an event. Use for Events or Cultural achievements section."
+    }
+  },
+  "instructions_to_main_agent": [
+    "Build a multi-page routing setup using React Router for public pages (Home, About, Academics, Admissions, etc.) and a separate layout for the /admin dashboard.",
+    "Import 'Playfair Display' and 'Manrope' via Google Fonts in index.html.",
+    "The Hero section must feature a large image with a gradient overlay (e.g., bg-black/40) to ensure high contrast text readability. Use Playfair Display for the main welcome heading.",
+    "Include a scrolling news ticker (using react-fast-marquee) either at the very top or directly under the hero section.",
+    "Design a distinct 'Two Branches' showcase comparing Birgaon (Main, est. 2002, classes 1-12) and Dhaneli (est. 2013, classes 1-8). Use a split card or bento layout.",
+    "Create an Admission Enquiry form using Shadcn Form and Input elements, including a dropdown for selecting the branch.",
+    "The Admin Dashboard should be clean and dense, using a sidebar navigation and table views to manage galleries, news, and admissions.",
+    "Ensure contrast ratios meet accessibility standards, especially when placing text over images or vibrant accent colors."
+  ],
+  "universal_guidelines_for_main_agent": [
+    "Do not center-align app container text globally; preserve natural reading flows.",
+    "Create depth using layered design elements with z-index hierarchy and glass-morphism effects (backdrop-blur-xl) where appropriate.",
+    "Never use generic AI emojis for icons; exclusively use lucide-react or @phosphor-icons/react.",
+    "Ensure every interactive element (buttons, links) has distinct hover and focus states with micro-animations.",
+    "Never use completely transparent backgrounds for dropdowns, sticky headers, or modals.",
+    "All interactive and key informational elements MUST include a 'data-testid' attribute for testing."
+  ]
+}

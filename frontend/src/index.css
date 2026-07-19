@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 98%;
+        --foreground: 217 33% 17%;
+        --card: 0 0% 100%;
+        --card-foreground: 217 33% 17%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 217 33% 17%;
+        --primary: 222 47% 11%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 20 91% 48%;
+        --secondary-foreground: 0 0% 100%;
+        --muted: 210 40% 96%;
+        --muted-foreground: 215 16% 47%;
+        --accent: 38 92% 50%;
+        --accent-foreground: 0 0% 100%;
+        --destructive: 0 72% 51%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 214 32% 91%;
+        --input: 214 32% 91%;
+        --ring: 222 47% 11%;
+        --radius: 1rem;
+    }
+    .dark {
+        --background: 222 47% 8%;
+        --foreground: 210 40% 98%;
+        --card: 222 47% 11%;
+        --card-foreground: 210 40% 98%;
+        --popover: 222 47% 11%;
+        --popover-foreground: 210 40% 98%;
+        --primary: 210 40% 98%;
+        --primary-foreground: 222 47% 11%;
+        --secondary: 20 91% 48%;
+        --secondary-foreground: 0 0% 100%;
+        --muted: 217 33% 17%;
+        --muted-foreground: 215 20% 65%;
+        --accent: 38 92% 50%;
+        --accent-foreground: 222 47% 11%;
+        --border: 217 33% 20%;
+        --input: 217 33% 20%;
+        --ring: 210 40% 98%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+        font-family: "Manrope", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    h1, h2, h3, h4, h5, h6, .font-display {
+        font-family: "Playfair Display", Georgia, serif;
+        letter-spacing: -0.02em;
+    }
+}
+
+@layer utilities {
+    .font-display { font-family: "Playfair Display", Georgia, serif; }
+    .font-body { font-family: "Manrope", system-ui, sans-serif; }
+    .bg-brand-navy { background-color: #0F172A; }
+    .text-brand-navy { color: #0F172A; }
+    .bg-brand-ochre { background-color: #EA580C; }
+    .text-brand-ochre { color: #EA580C; }
+    .bg-brand-gold { background-color: #F59E0B; }
+    .text-brand-gold { color: #F59E0B; }
+    .bg-brand-cream { background-color: #FEF9F0; }
+    .grain-texture {
+        background-image:
+          radial-gradient(rgba(15,23,42,0.03) 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+    .glass {
+        background: rgba(255,255,255,0.75);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+    }
+    .hero-gradient {
+        background: linear-gradient(135deg, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.55) 50%, rgba(234,88,12,0.35) 100%);
+    }
+}
+
+/* smooth scroll for anchors */
+html { scroll-behavior: smooth; }
+
+/* selection */
+::selection { background: #EA580C; color: #fff; }
+
+/* subtle scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #0F172A; border-radius: 8px; }
