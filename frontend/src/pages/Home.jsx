@@ -8,6 +8,12 @@ import GalleryPreview from "./home/GalleryPreview";
 import EventsPreview from "./home/EventsPreview";
 import TestimonialsSection from "./home/TestimonialsSection";
 import CtaSection from "./home/CtaSection";
+import {
+  fallbackAchievements,
+  fallbackEvents,
+  fallbackGallery,
+  fallbackTestimonials,
+} from "@/lib/fallbackContent";
 
 export default function Home() {
   const [testimonials, setTestimonials] = useState([]);
@@ -22,10 +28,10 @@ export default function Home() {
       api.get("/gallery").catch(() => ({ data: [] })),
       api.get("/achievements").catch(() => ({ data: [] })),
     ]);
-    setTestimonials(t.data.slice(0, 3));
-    setEvents(e.data.slice(0, 3));
-    setGallery(g.data.slice(0, 6));
-    setAchievements(a.data.slice(0, 4));
+    setTestimonials((t.data.length ? t.data : fallbackTestimonials).slice(0, 3));
+    setEvents((e.data.length ? e.data : fallbackEvents).slice(0, 3));
+    setGallery((g.data.length ? g.data : fallbackGallery).slice(0, 6));
+    setAchievements((a.data.length ? a.data : fallbackAchievements).slice(0, 4));
   }, []);
 
   useEffect(() => {

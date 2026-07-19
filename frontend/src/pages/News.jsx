@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { api } from "@/lib/api";
 import PageHeader from "@/components/PageHeader";
 import { Megaphone } from "lucide-react";
+import { fallbackNews } from "@/lib/fallbackContent";
 
 export default function News() {
   const [items, setItems] = useState([]);
@@ -9,9 +10,9 @@ export default function News() {
   const load = useCallback(async () => {
     try {
       const { data } = await api.get("/news");
-      setItems(data);
+      setItems(data.length ? data : fallbackNews);
     } catch {
-      setItems([]);
+      setItems(fallbackNews);
     }
   }, []);
 

@@ -17,11 +17,13 @@ import AdminDashboard from "@/pages/admin/AdminDashboard";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import { AuthProvider } from "@/context/AuthContext";
 
+const appBasename = process.env.REACT_APP_BASENAME || "";
+
 function App() {
   return (
     <div className="App font-body">
       <AuthProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={appBasename}>
           <Toaster position="top-right" richColors />
           <Routes>
             <Route element={<PublicLayout />}>

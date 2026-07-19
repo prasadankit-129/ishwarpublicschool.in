@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { api } from "@/lib/api";
 import PageHeader from "@/components/PageHeader";
 import { X } from "lucide-react";
+import { fallbackGallery } from "@/lib/fallbackContent";
 
 export default function Gallery() {
   const [items, setItems] = useState([]);
@@ -10,9 +11,9 @@ export default function Gallery() {
   const load = useCallback(async () => {
     try {
       const { data } = await api.get("/gallery");
-      setItems(data);
+      setItems(data.length ? data : fallbackGallery);
     } catch {
-      setItems([]);
+      setItems(fallbackGallery);
     }
   }, []);
 

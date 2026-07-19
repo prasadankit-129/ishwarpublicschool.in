@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { api } from "@/lib/api";
 import PageHeader from "@/components/PageHeader";
 import { Trophy } from "lucide-react";
+import { fallbackAchievements } from "@/lib/fallbackContent";
 
 export default function Achievements() {
   const [items, setItems] = useState([]);
@@ -9,9 +10,9 @@ export default function Achievements() {
   const load = useCallback(async () => {
     try {
       const { data } = await api.get("/achievements");
-      setItems(data);
+      setItems(data.length ? data : fallbackAchievements);
     } catch {
-      setItems([]);
+      setItems(fallbackAchievements);
     }
   }, []);
 

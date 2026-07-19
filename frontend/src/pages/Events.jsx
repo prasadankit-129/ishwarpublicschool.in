@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { api } from "@/lib/api";
 import PageHeader from "@/components/PageHeader";
 import { Calendar, MapPin } from "lucide-react";
+import { fallbackEvents } from "@/lib/fallbackContent";
 
 export default function Events() {
   const [items, setItems] = useState([]);
@@ -9,9 +10,9 @@ export default function Events() {
   const load = useCallback(async () => {
     try {
       const { data } = await api.get("/events");
-      setItems(data);
+      setItems(data.length ? data : fallbackEvents);
     } catch {
-      setItems([]);
+      setItems(fallbackEvents);
     }
   }, []);
 
