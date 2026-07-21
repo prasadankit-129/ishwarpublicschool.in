@@ -14,7 +14,7 @@ export default function Hero() {
     <section className="relative overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: imageUrl("images/image1.jpg") }}
+        style={{ backgroundImage: "url('https://images.pexels.com/photos/20200756/pexels-photo-20200756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')" }}
       />
       <div className="absolute inset-0 hero-gradient" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36 text-white">
