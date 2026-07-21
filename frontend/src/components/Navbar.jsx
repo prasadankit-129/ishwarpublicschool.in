@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X, GraduationCap, Phone } from "lucide-react";
-import { SCHOOL } from "@/lib/api";
+import { SCHOOL } from "@/data/siteData";
 
 const links = [
   { to: "/", label: "Home" },
@@ -22,7 +22,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-3 group" data-testid="nav-logo">
-            <div className="w-12 h-12 rounded-2xl bg-brand-navy flex items-center justify-center shadow-sm group-hover:rotate-3 transition-transform">
+            <div className="w-12 h-12 rounded-2xl bg-brand-navy flex items-center justify-center shadow-sm group-hover:rotate-3 transition-transform animate-float-soft">
               <GraduationCap className="w-6 h-6 text-brand-gold" />
             </div>
             <div className="leading-tight">
@@ -59,6 +59,7 @@ export default function Navbar() {
               data-testid="nav-cta-admissions"
               className="px-5 py-2.5 rounded-full bg-brand-ochre text-white font-semibold text-sm hover:bg-brand-ochre/90 transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
             >
+              <i className="fa-solid fa-paper-plane mr-2" aria-hidden="true" />
               Apply Now
             </Link>
           </div>
@@ -91,6 +92,7 @@ export default function Navbar() {
               </NavLink>
             ))}
             <Link to="/admissions" onClick={() => setOpen(false)} className="block px-4 py-2.5 rounded-lg bg-brand-ochre text-white font-semibold text-center">
+              <i className="fa-solid fa-paper-plane mr-2" aria-hidden="true" />
               Apply Now
             </Link>
           </div>

@@ -41,7 +41,6 @@ jobs:
           CI: false
           PUBLIC_URL: /${{ github.event.repository.name }}
           REACT_APP_BASENAME: /${{ github.event.repository.name }}
-          REACT_APP_BACKEND_URL: ""
         run: yarn build
 
       - name: Add static route pages

@@ -1,6 +1,6 @@
 import PageHeader from "@/components/PageHeader";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
-import { SCHOOL } from "@/lib/api";
+import { SCHOOL } from "@/data/siteData";
 
 export default function Contact() {
   return (
@@ -25,7 +25,7 @@ export default function Contact() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-brand-ochre" />
-                  <a href="mailto:admin@ishwarpublicschool.com" className="hover:text-brand-ochre">admin@ishwarpublicschool.com</a>
+                  <a href={`mailto:${SCHOOL.email}`} className="hover:text-brand-ochre">{SCHOOL.email}</a>
                 </div>
                 <div className="flex items-center gap-3">
                   <Clock className="w-4 h-4 text-brand-ochre" />

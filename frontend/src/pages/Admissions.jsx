@@ -2,7 +2,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
-import { api, SCHOOL } from "@/lib/api";
+import { ASSETS, SCHOOL } from "@/data/siteData";
 
 const CLASSES = ["Nursery", "LKG", "UKG", "Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7", "Class 8", "Class 9", "Class 10", "Class 11", "Class 12"];
 
@@ -10,6 +10,7 @@ export default function Admissions() {
   const [form, setForm] = useState({ parent_name: "", child_name: "", phone: "", email: "", class_interested: "", branch: "birgaon", message: "" });
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
+  const formSubmitEndpoint = `https://formsubmit.co/ajax/${SCHOOL.enquiryEmail}`;
 
   const submit = async (e) => {
     e.preventDefault();
@@ -19,13 +20,32 @@ export default function Admissions() {
     }
     setLoading(true);
     try {
-      const payload = { ...form };
-      if (!payload.email) delete payload.email;
-      await api.post("/admissions", payload);
+      const payload = new FormData();
+      payload.append("Parent / Guardian Name", form.parent_name);
+      payload.append("Child Name", form.child_name);
+      payload.append("Phone Number", form.phone);
+      payload.append("Email", form.email || "Not provided");
+      payload.append("Class Interested", form.class_interested);
+      payload.append("Preferred Campus", form.branch === "birgaon" ? "Birgaon Campus" : "Dhaneli Campus");
+      payload.append("Message", form.message || "No extra message");
+      payload.append("_subject", "New Admission Enquiry - Ishwar Public School");
+      payload.append("_template", "table");
+      payload.append("_captcha", "false");
+
+      const response = await fetch(formSubmitEndpoint, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: payload,
+      });
+
+      if (!response.ok) {
+        throw new Error("Email service did not accept the enquiry.");
+      }
+
       setDone(true);
-      toast.success("Enquiry submitted! We'll get back to you shortly.");
+      toast.success("Enquiry sent to the school email.");
     } catch (err) {
-      toast.error(err.response?.data?.detail || "Something went wrong. Please try again.");
+      toast.error("Email service could not submit this enquiry. Please call or WhatsApp the school.");
     } finally {
       setLoading(false);
     }
@@ -33,7 +53,7 @@ export default function Admissions() {
 
   return (
     <div data-testid="admissions-page">
-      <PageHeader eyebrow="Admissions" title="Begin your child's Ishwar journey." subtitle="Admissions are open for the 2026-27 session. Fill this quick enquiry and our admissions team will reach out with next steps." image="https://images.pexels.com/photos/3767411/pexels-photo-3767411.jpeg" />
+      <PageHeader eyebrow="Admissions" title="Begin your child's Ishwar journey." subtitle="Admissions are open for the 2026-27 session. Fill this quick enquiry and our admissions team will reach out with next steps." image={ASSETS.admissions} />
 
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-10">
@@ -48,7 +68,7 @@ export default function Admissions() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={submit} className="p-8 md:p-10 rounded-3xl border border-border/60 bg-white space-y-5" data-testid="admission-form">
+              <form onSubmit={submit} action={formSubmitEndpoint} method="POST" className="p-8 md:p-10 rounded-3xl border border-border/60 bg-white space-y-5 animate-rise-in" data-testid="admission-form">
                 <h3 className="font-display text-2xl font-bold text-brand-navy">Admission Enquiry Form</h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   <Field label="Parent / Guardian Name *" value={form.parent_name} onChange={(v) => setForm({ ...form, parent_name: v })} testid="input-parent-name" />
@@ -75,8 +95,11 @@ export default function Admissions() {
                   <textarea rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full px-4 py-3 rounded-xl border border-border focus:border-brand-ochre focus:outline-none bg-white" data-testid="input-message" />
                 </div>
                 <button type="submit" disabled={loading} className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-brand-ochre hover:bg-brand-ochre/90 text-white font-semibold disabled:opacity-60" data-testid="admission-submit-btn">
-                  {loading ? <><Loader2 className="w-4 h-4 animate-spin" />Submitting...</> : "Submit Enquiry"}
+                  {loading ? <><Loader2 className="w-4 h-4 animate-spin" />Sending...</> : <><i className="fa-solid fa-envelope-circle-check" aria-hidden="true" /> Send Enquiry</>}
                 </button>
+                <p className="text-xs text-muted-foreground">
+                  This static form sends the enquiry directly to {SCHOOL.enquiryEmail}. No backend or database is used.
+                </p>
               </form>
             )}
           </div>

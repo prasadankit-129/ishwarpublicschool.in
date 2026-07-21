@@ -1,5 +1,6 @@
 import PageHeader from "@/components/PageHeader";
 import { User } from "lucide-react";
+import { ASSETS } from "@/data/siteData";
 
 const leadership = [
   { name: "Anju Bala", role: "Head Teacher — Birgaon Campus", desc: "Leading the main branch with over two decades of experience in student mentorship and school administration." },
@@ -24,7 +25,7 @@ export default function Faculty() {
         eyebrow="Our Faculty"
         title="Teachers who teach with heart."
         subtitle="A team of 34+ trained educators across two campuses — bringing knowledge, patience, and genuine care to every classroom."
-        image="https://images.pexels.com/photos/8617714/pexels-photo-8617714.jpeg"
+        image={ASSETS.faculty}
       />
 
       <section className="py-20">

@@ -1,23 +1,10 @@
-import { useCallback, useEffect, useState } from "react";
-import { api } from "@/lib/api";
+import { useState } from "react";
 import PageHeader from "@/components/PageHeader";
 import { X } from "lucide-react";
-import { fallbackGallery } from "@/lib/fallbackContent";
+import { ASSETS, gallery } from "@/data/siteData";
 
 export default function Gallery() {
-  const [items, setItems] = useState([]);
   const [selected, setSelected] = useState(null);
-
-  const load = useCallback(async () => {
-    try {
-      const { data } = await api.get("/gallery");
-      setItems(data.length ? data : fallbackGallery);
-    } catch {
-      setItems(fallbackGallery);
-    }
-  }, []);
-
-  useEffect(() => { load(); }, [load]);
 
   return (
     <div data-testid="gallery-page">
@@ -25,12 +12,12 @@ export default function Gallery() {
         eyebrow="Gallery"
         title="A window into our world."
         subtitle="Moments captured across classrooms, playgrounds and celebrations at both our campuses."
-        image="https://images.pexels.com/photos/35493021/pexels-photo-35493021.jpeg"
+        image={ASSETS.celebration}
       />
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5">
-            {items.map((g) => (
+            {gallery.map((g) => (
               <button
                 key={g.id}
                 onClick={() => setSelected(g)}

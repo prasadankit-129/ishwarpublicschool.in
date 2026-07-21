@@ -1,6 +1,6 @@
 import PageHeader from "@/components/PageHeader";
 import { BookOpen, Beaker, Palette, Music, Trophy, Laptop } from "lucide-react";
-import { SCHOOL } from "@/lib/api";
+import { ASSETS, SCHOOL } from "@/data/siteData";
 
 const stages = [
   { level: "Pre-Primary", classes: "Nursery, LKG, UKG", desc: "A playful, sensory-rich foundation focused on language, motor skills, and social development." },
@@ -25,7 +25,7 @@ export default function Academics() {
         eyebrow="Academics"
         title="A curriculum that grows with your child."
         subtitle="From nursery playgroups to Class 12 board preparation — thoughtfully structured, values-anchored, and delivered by teachers who love what they do."
-        image="https://images.pexels.com/photos/3765114/pexels-photo-3765114.jpeg"
+        image={ASSETS.academics}
       />
 
       <section className="py-20">

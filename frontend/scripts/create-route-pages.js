@@ -14,8 +14,6 @@ const routes = [
   "achievements",
   "admissions",
   "contact",
-  "admin/login",
-  "admin/dashboard",
 ];
 
 if (!fs.existsSync(indexPath)) {

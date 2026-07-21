@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, MapPin, Mail, Facebook, Instagram, GraduationCap } from "lucide-react";
-import { SCHOOL } from "@/lib/api";
+import { SCHOOL } from "@/data/siteData";
 
 export default function Footer() {
   return (
@@ -58,7 +58,7 @@ export default function Footer() {
           <h4 className="font-display text-base font-semibold mb-4 text-brand-gold">Contact</h4>
           <ul className="space-y-3 text-sm text-white/75">
             <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-brand-gold" /><a href={`tel:${SCHOOL.phoneRaw}`} className="hover:text-brand-gold">{SCHOOL.phone}</a></li>
-            <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-brand-gold" /><a href="mailto:admin@ishwarpublicschool.com" className="hover:text-brand-gold">admin@ishwarpublicschool.com</a></li>
+            <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-brand-gold" /><a href={`mailto:${SCHOOL.email}`} className="hover:text-brand-gold">{SCHOOL.email}</a></li>
             <li><a href={SCHOOL.mapUrl} target="_blank" rel="noreferrer" className="hover:text-brand-gold underline underline-offset-2">View on Google Maps</a></li>
           </ul>
         </div>
@@ -66,7 +66,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-xs text-white/50 flex flex-col md:flex-row items-center justify-between gap-2">
           <span>© {new Date().getFullYear()} Ishwar Public School, Raipur. All rights reserved.</span>
-          <Link to="/admin/login" className="hover:text-brand-gold" data-testid="footer-admin-link">Admin</Link>
+          <span>Static website. No backend. No database.</span>
         </div>
       </div>
     </footer>

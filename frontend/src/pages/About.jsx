@@ -1,5 +1,6 @@
 import { Target, Eye, HeartHandshake, Sparkles } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
+import { ASSETS } from "@/data/siteData";
 
 export default function About() {
   return (
@@ -8,7 +9,7 @@ export default function About() {
         eyebrow="Who We Are"
         title="A quiet, steady commitment to excellence in education."
         subtitle="Founded in 2002 in Birgaon, Ishwar Public School has grown into a trusted two-campus institution serving families across Raipur."
-        image="https://images.pexels.com/photos/8926842/pexels-photo-8926842.jpeg"
+        image={ASSETS.sports}
       />
 
       <section className="py-20">
@@ -22,7 +23,7 @@ export default function About() {
               <p>Today, with 34+ teachers across two campuses, we continue to walk beside families through the journey of childhood — nurturing not just students, but future citizens.</p>
             </div>
           </div>
-          <img src="https://images.pexels.com/photos/3231359/pexels-photo-3231359.jpeg" alt="Students at school" className="w-full rounded-3xl shadow-lg aspect-[4/5] object-cover" />
+          <img src={ASSETS.classroom} alt="Students at school" className="w-full rounded-3xl shadow-lg aspect-[4/5] object-cover animate-float-soft" />
         </div>
       </section>
 

@@ -1,29 +1,14 @@
-import { useCallback, useEffect, useState } from "react";
-import { api } from "@/lib/api";
 import PageHeader from "@/components/PageHeader";
 import { Calendar, MapPin } from "lucide-react";
-import { fallbackEvents } from "@/lib/fallbackContent";
+import { ASSETS, events } from "@/data/siteData";
 
 export default function Events() {
-  const [items, setItems] = useState([]);
-
-  const load = useCallback(async () => {
-    try {
-      const { data } = await api.get("/events");
-      setItems(data.length ? data : fallbackEvents);
-    } catch {
-      setItems(fallbackEvents);
-    }
-  }, []);
-
-  useEffect(() => { load(); }, [load]);
-
   return (
     <div data-testid="events-page">
-      <PageHeader eyebrow="Events" title="Where learning meets celebration." subtitle="From sports days to science fairs — a look at what's happening on our campuses." image="https://images.pexels.com/photos/35493021/pexels-photo-35493021.jpeg" />
+      <PageHeader eyebrow="Events" title="Where learning meets celebration." subtitle="From sports days to science fairs — a look at what's happening on our campuses." image={ASSETS.celebration} />
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
-          {items.map((e) => (
+          {events.map((e) => (
             <div key={e.id} className="p-6 md:p-8 rounded-3xl border border-border/60 hover:border-brand-ochre transition-colors bg-white flex flex-col md:flex-row gap-6" data-testid={`event-${e.id}`}>
               <div className="w-24 h-24 rounded-2xl bg-brand-navy text-white flex flex-col items-center justify-center flex-shrink-0">
                 <Calendar className="w-5 h-5 text-brand-gold" />
@@ -39,7 +24,7 @@ export default function Events() {
               </div>
             </div>
           ))}
-          {items.length === 0 && <p className="text-center text-muted-foreground py-10">No upcoming events. Please check back soon.</p>}
+          {events.length === 0 && <p className="text-center text-muted-foreground py-10">No upcoming events. Please check back soon.</p>}
         </div>
       </section>
     </div>

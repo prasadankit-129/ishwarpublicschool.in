@@ -30,13 +30,10 @@ next-env.d.ts
 dist/
 dist
 
-# Environment files (comprehensive coverage)
+# Environment files
 .env
-backend/.env
 frontend/.env
-!.env.example
-!backend/.env.example
-!frontend/.env.example
+*.env.local
 
 *token.json*
 *credentials.json*
@@ -57,6 +54,7 @@ __pycache__/
 *pyc*
 venv/
 .venv/
+.ruff_cache/
 
 # Development tools
 chainlit.md

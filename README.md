@@ -1,15 +1,8 @@
 # Ishwar Public School Website
 
-Ye project Emergent export se aaya hua React frontend + FastAPI backend app hai.
+Ye ab simple static React website hai. Backend, MongoDB, database, aur admin panel ka use nahi hai.
 
 ## Localhost par chalana
-
-### 1. Zaruri software
-
-- Node.js install hona chahiye.
-- Backend/admin features ke liye Python 3.11+ aur MongoDB Community Server install hona chahiye.
-
-### 2. Frontend preview
 
 Visual Studio Code me project folder open karke terminal chalayein:
 
@@ -33,41 +26,9 @@ npm run build
 npm run preview
 ```
 
-Frontend ki local config `frontend/.env` me hai:
+Website ka data `frontend/src/data/siteData.js` me hai. Images `frontend/public/assets/images` me rakhi gayi hain.
 
-```env
-REACT_APP_BACKEND_URL=http://localhost:8001
-ENABLE_HEALTH_CHECK=false
-```
-
-Backend band ho tab bhi public pages fallback content ke saath dikh jayenge.
-
-### 3. Backend/API chalana
-
-Python aur MongoDB install hone ke baad ek alag terminal me:
-
-```powershell
-cd backend
-py -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-python -m uvicorn server:app --host 0.0.0.0 --port 8001 --reload
-```
-
-Backend health check:
-
-```text
-http://localhost:8001/api/
-```
-
-MongoDB Windows service check karne ke liye:
-
-```powershell
-Get-Service MongoDB
-Start-Service MongoDB
-```
-
-Admin login local `.env` me configured hai. Production me password aur JWT secret change karna zaruri hai.
+Admission enquiry form FormSubmit ke through `admin@ishwarpublicschool.com` par email bhejta hai. Pehli baar FormSubmit school email par activation/confirmation mail bhej sakta hai.
 
 ## GitHub Pages par static preview
 
@@ -80,24 +41,14 @@ GitHub me ek baar:
 3. Source me GitHub Actions select karein.
 4. Code push karein.
 
-Preview URL aam taur par aisa hoga:
+Preview URL:
 
 ```text
 https://prasadankit-129.github.io/ishwarpublicschool.in/
 ```
 
-GitHub Pages Python backend ya MongoDB host nahi karta. Isliye public website preview chalega, lekin admin panel, admission form save, live news/gallery/events updates ke liye backend ko Render, Railway, VPS, ya kisi Python hosting par deploy karna padega.
-
-## Domain hosting
-
-Production setup ke liye:
-
-- Frontend build ko GitHub Pages, Netlify, Vercel, ya shared hosting par host kar sakte hain.
-- Backend ko Python-compatible hosting par host karein.
-- Production frontend env me `REACT_APP_BACKEND_URL` ko backend domain par set karein.
-- Backend `.env` me `CORS_ORIGINS` me final frontend domain add karein.
-- HTTPS domain par `COOKIE_SECURE="true"` use karein.
+Ab backend required nahi hai. Domain hosting ke liye GitHub Pages me custom domain set karke DNS records update karne hain.
 
 ## Safe GitHub publish note
 
-Real `.env` files GitHub par upload nahi karni chahiye. Is repo me `.env.example` files placeholders ke liye rakhi gayi hain.
+Real `.env` files GitHub par upload nahi karni chahiye. Is static website ko normal hosting par environment variables ki zarurat nahi hai.

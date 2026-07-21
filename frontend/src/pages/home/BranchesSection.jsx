@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen, ChevronRight, MapPin, Users } from "lucide-react";
-import { SCHOOL } from "@/lib/api";
+import { SCHOOL } from "@/data/siteData";
 
 export default function BranchesSection() {
   return (

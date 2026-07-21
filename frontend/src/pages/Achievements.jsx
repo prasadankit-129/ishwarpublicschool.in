@@ -1,29 +1,14 @@
-import { useCallback, useEffect, useState } from "react";
-import { api } from "@/lib/api";
 import PageHeader from "@/components/PageHeader";
 import { Trophy } from "lucide-react";
-import { fallbackAchievements } from "@/lib/fallbackContent";
+import { ASSETS, achievements } from "@/data/siteData";
 
 export default function Achievements() {
-  const [items, setItems] = useState([]);
-
-  const load = useCallback(async () => {
-    try {
-      const { data } = await api.get("/achievements");
-      setItems(data.length ? data : fallbackAchievements);
-    } catch {
-      setItems(fallbackAchievements);
-    }
-  }, []);
-
-  useEffect(() => { load(); }, [load]);
-
   return (
     <div data-testid="achievements-page">
-      <PageHeader eyebrow="Achievements" title="Moments of pride." subtitle="Milestones our students, teachers and school have earned over the years." image="https://images.pexels.com/photos/8617714/pexels-photo-8617714.jpeg" />
+      <PageHeader eyebrow="Achievements" title="Moments of pride." subtitle="Milestones our students, teachers and school have earned over the years." image={ASSETS.faculty} />
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-5">
-          {items.map((a) => (
+          {achievements.map((a) => (
             <div key={a.id} className="p-8 rounded-3xl border border-border/60 hover:border-brand-ochre transition-colors bg-white flex gap-5" data-testid={`achievement-item-${a.id}`}>
               <div className="w-14 h-14 rounded-2xl bg-brand-gold text-brand-navy flex items-center justify-center flex-shrink-0">
                 <Trophy className="w-6 h-6" />

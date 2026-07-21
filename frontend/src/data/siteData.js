@@ -1,7 +1,66 @@
+export const ASSETS = {
+  hero: "/assets/images/hero-campus.jpg",
+  classroom: "/assets/images/classroom.jpg",
+  sports: "/assets/images/sports.jpg",
+  academics: "/assets/images/academics.jpg",
+  faculty: "/assets/images/faculty.jpg",
+  admissions: "/assets/images/admissions.jpg",
+  celebration: "/assets/images/celebration.jpg",
+  building: "/assets/images/building.jpg",
+  students: "/assets/images/students.jpg",
+  library: "/assets/images/library.jpg",
+  scienceLab: "/assets/images/science-lab.jpg",
+  annualFunction: "/assets/images/annual-function.jpg",
+};
+
+export const SCHOOL = {
+  name: "Ishwar Public School",
+  tagline: "Nurturing Minds. Building Futures.",
+  established: 2002,
+  email: "admin@ishwarpublicschool.com",
+  enquiryEmail: "admin@ishwarpublicschool.com",
+  phone: "+91 94241 97068",
+  phoneRaw: "+919424197068",
+  whatsapp: "https://wa.me/919424197068",
+  mapUrl: "https://maps.app.goo.gl/eaGtbmW9fF72WxVv6",
+  facebook: "https://www.facebook.com/p/Ishwar-Public-HrSec-School-Birgaon-100076074786887/",
+  instagram: "https://www.instagram.com/p/DVu0YCJCOIh/",
+  branches: [
+    {
+      key: "birgaon",
+      name: "Birgaon Campus",
+      subtitle: "Main Branch",
+      established: 2002,
+      classes: "Class 1 to 12",
+      address: "Vishal Colony, Urla Road, Birgaon, Sadar Bazar, Raipur, Chhattisgarh 492001",
+      pin: "492001",
+      headTeacher: "Anju Bala",
+      teachers: 25,
+      classrooms: 15,
+      medium: "English",
+      board: "State Board (CG)",
+    },
+    {
+      key: "dhaneli",
+      name: "Dhaneli Campus",
+      subtitle: "Local Branch",
+      established: 2013,
+      classes: "Class 1 to 8",
+      address: "Dhaneli, Dharshiwa Block, Raipur, Chhattisgarh 492116",
+      pin: "492116",
+      headTeacher: "Tejaswi Dewangan",
+      teachers: 9,
+      classrooms: 8,
+      medium: "English",
+      board: "State Board (CG)",
+    },
+  ],
+};
+
 const withId = (prefix, items) =>
   items.map((item, index) => ({ id: `${prefix}-${index + 1}`, ...item }));
 
-export const fallbackNews = withId("news", [
+export const news = withId("news", [
   {
     title: "Admissions Open for 2026-27 Academic Session",
     content:
@@ -25,7 +84,7 @@ export const fallbackNews = withId("news", [
   },
 ]);
 
-export const fallbackTestimonials = withId("testimonial", [
+export const testimonials = withId("testimonial", [
   {
     name: "Priya Sharma",
     role: "Parent",
@@ -49,7 +108,7 @@ export const fallbackTestimonials = withId("testimonial", [
   },
 ]);
 
-export const fallbackEvents = withId("event", [
+export const events = withId("event", [
   {
     title: "Annual Sports Day 2026",
     description:
@@ -73,7 +132,7 @@ export const fallbackEvents = withId("event", [
   },
 ]);
 
-export const fallbackAchievements = withId("achievement", [
+export const achievements = withId("achievement", [
   {
     title: "100% Pass Rate in Class XII",
     description: "All students cleared their board exams with distinction.",
@@ -100,49 +159,13 @@ export const fallbackAchievements = withId("achievement", [
   },
 ]);
 
-export const fallbackGallery = withId("gallery", [
-  {
-    title: "Modern Classrooms",
-    image_url:
-      "https://images.pexels.com/photos/3231359/pexels-photo-3231359.jpeg?auto=compress&cs=tinysrgb&w=940",
-    category: "classroom",
-  },
-  {
-    title: "Playground Activities",
-    image_url:
-      "https://images.pexels.com/photos/8926842/pexels-photo-8926842.jpeg?auto=compress&cs=tinysrgb&w=940",
-    category: "sports",
-  },
-  {
-    title: "Cultural Celebration",
-    image_url:
-      "https://images.pexels.com/photos/35493021/pexels-photo-35493021.jpeg?auto=compress&cs=tinysrgb&w=940",
-    category: "events",
-  },
-  {
-    title: "School Building",
-    image_url:
-      "https://images.pexels.com/photos/20200756/pexels-photo-20200756.jpeg?auto=compress&cs=tinysrgb&w=940",
-    category: "campus",
-  },
-  {
-    title: "Students in Uniform",
-    image_url: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=940&q=80",
-    category: "students",
-  },
-  {
-    title: "Library Session",
-    image_url: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=940&q=80",
-    category: "library",
-  },
-  {
-    title: "Science Lab",
-    image_url: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=940&q=80",
-    category: "lab",
-  },
-  {
-    title: "Annual Function",
-    image_url: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=940&q=80",
-    category: "events",
-  },
+export const gallery = withId("gallery", [
+  { title: "Modern Classrooms", image_url: ASSETS.classroom, category: "classroom" },
+  { title: "Playground Activities", image_url: ASSETS.sports, category: "sports" },
+  { title: "Cultural Celebration", image_url: ASSETS.celebration, category: "events" },
+  { title: "School Building", image_url: ASSETS.building, category: "campus" },
+  { title: "Students in Uniform", image_url: ASSETS.students, category: "students" },
+  { title: "Library Session", image_url: ASSETS.library, category: "library" },
+  { title: "Science Lab", image_url: ASSETS.scienceLab, category: "lab" },
+  { title: "Annual Function", image_url: ASSETS.annualFunction, category: "events" },
 ]);
