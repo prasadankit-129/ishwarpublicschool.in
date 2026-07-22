@@ -22,9 +22,10 @@ Fast static preview ke liye:
 
 ```powershell
 cd frontend
-npm run build
-npm run preview
+npm run preview:local
 ```
+
+`preview:local` GitHub Pages wala base path hata kar fresh local build banata hai, isliye ye `http://localhost:3000` par seedha open hota hai.
 
 Website ka data `frontend/src/data/siteData.js` me hai. Images `frontend/public/assets/images` me rakhi gayi hain.
 
