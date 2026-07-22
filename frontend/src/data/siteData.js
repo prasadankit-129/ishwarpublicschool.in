@@ -2,18 +2,18 @@ const publicUrl = process.env.REACT_APP_BASENAME || "";
 const asset = (path) => `${publicUrl}${path}`;
 
 export const ASSETS = {
-  hero: asset("/assets/images/hero-campus.jpg"),
-  classroom: asset("/assets/images/classroom.jpg"),
-  sports: asset("/assets/images/sports.jpg"),
-  academics: asset("/assets/images/academics.jpg"),
-  faculty: asset("/assets/images/faculty.jpg"),
-  admissions: asset("/assets/images/admissions.jpg"),
-  celebration: asset("/assets/images/celebration.jpg"),
-  building: asset("/assets/images/building.jpg"),
-  students: asset("/assets/images/students.jpg"),
-  library: asset("/assets/images/library.jpg"),
-  scienceLab: asset("/assets/images/science-lab.jpg"),
-  annualFunction: asset("/assets/images/annual-function.jpg"),
+  hero: asset("/assets/images/image1.jpg"),
+  classroom: asset("/assets/images/image2.jpg"),
+  sports: asset("/assets/images/image3.jpg"),
+  academics: asset("/assets/images/image4.jpg"),
+  faculty: asset("/assets/images/image5.jpg"),
+  admissions: asset("/assets/images/image6.jpg"),
+  celebration: asset("/assets/images/image7.jpg"),
+  building: asset("/assets/images/image8.jpg"),
+  students: asset("/assets/images/image9.jpg"),
+  library: asset("/assets/images/image1.jpg"),
+  scienceLab: asset("/assets/images/image2.jpg"),
+  annualFunction: asset("/assets/images/image3.jpg"),
 };
 
 export const SCHOOL = {
@@ -22,9 +22,9 @@ export const SCHOOL = {
   established: 2002,
   email: "admin@ishwarpublicschool.com",
   enquiryEmail: "admin@ishwarpublicschool.com",
-  phone: "+91 94241 97068",
+  phone: "+91 9424197068",
   phoneRaw: "+919424197068",
-  whatsapp: "https://wa.me/919424197068",
+  whatsapp: "https://wa.me/+919424197068",
   mapUrl: "https://maps.app.goo.gl/eaGtbmW9fF72WxVv6",
   facebook: "https://www.facebook.com/p/Ishwar-Public-HrSec-School-Birgaon-100076074786887/",
   instagram: "https://www.instagram.com/p/DVu0YCJCOIh/",
