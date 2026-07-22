@@ -34,7 +34,7 @@ export default function FeaturesSection() {
             </div>
           </div>
           <div className="relative">
-            <img src={ASSETS.classroom} alt="Students in classroom" className="w-full rounded-3xl shadow-xl object-cover aspect-[4/5] animate-float-soft" />
+            <img src={ASSETS.celebration} alt="Students in classroom" className="w-full rounded-3xl shadow-xl object-cover aspect-[4/5] animate-float-soft" />
             <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl max-w-xs hidden md:block">
               <div className="flex items-center gap-1 mb-2 text-brand-gold">
                 {STAR_KEYS.map((k) => <Star key={k} className="w-4 h-4 fill-current" />)}

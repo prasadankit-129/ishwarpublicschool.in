@@ -11,9 +11,9 @@ export const ASSETS = {
   celebration: asset("/assets/images/image7.jpg"),
   building: asset("/assets/images/image8.jpg"),
   students: asset("/assets/images/image9.jpg"),
-  library: asset("/assets/images/image1.jpg"),
-  scienceLab: asset("/assets/images/image2.jpg"),
-  annualFunction: asset("/assets/images/image3.jpg"),
+  library: asset("/assets/images/image24.jpg"),
+  scienceLab: asset("/assets/images/image14.jpg"),
+  annualFunction: asset("/assets/images/image11.jpg"),
 };
 
 export const SCHOOL = {
@@ -163,12 +163,13 @@ export const achievements = withId("achievement", [
 ]);
 
 export const gallery = withId("gallery", [
-  { title: "Modern Classrooms", image_url: ASSETS.classroom, category: "classroom" },
-  { title: "Playground Activities", image_url: ASSETS.sports, category: "sports" },
-  { title: "Cultural Celebration", image_url: ASSETS.celebration, category: "events" },
-  { title: "School Building", image_url: ASSETS.building, category: "campus" },
-  { title: "Students in Uniform", image_url: ASSETS.students, category: "students" },
-  { title: "Library Session", image_url: ASSETS.library, category: "library" },
-  { title: "Science Lab", image_url: ASSETS.scienceLab, category: "lab" },
-  { title: "Annual Function", image_url: ASSETS.annualFunction, category: "events" },
+  { title: " ", image_url: ASSETS.sports, category: "sports" },
+  { title: " ", image_url: ASSETS.academics, category: "academics" },
+  { title: " ", image_url: ASSETS.faculty, category: "faculty" },
+  { title: " ", image_url: ASSETS.celebration, category: "celebration" },
+  { title: " ", image_url: ASSETS.building, category: "building" },
+  { title: " ", image_url: ASSETS.students, category: "students" },
+  { title: " ", image_url: ASSETS.library, category: "library" },
+  { title: " ", image_url: ASSETS.scienceLab, category: "scienceLab" },
+  { title: " ", image_url: ASSETS.annualFunction, category: "annualFunction" },
 ]);

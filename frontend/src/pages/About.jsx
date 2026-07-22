@@ -23,7 +23,7 @@ export default function About() {
               <p>Today, with 34+ teachers across two campuses, we continue to walk beside families through the journey of childhood — nurturing not just students, but future citizens.</p>
             </div>
           </div>
-          <img src={ASSETS.classroom} alt="Students at school" className="w-full rounded-3xl shadow-lg aspect-[4/5] object-cover animate-float-soft" />
+          <img src={ASSETS.scienceLab} alt="Students at school" className="w-full rounded-3xl shadow-lg aspect-[4/5] object-cover animate-float-soft" />
         </div>
       </section>
 
