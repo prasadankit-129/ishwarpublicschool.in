@@ -57,7 +57,7 @@ export default function Navbar() {
             <Link
               to="/admissions"
               data-testid="nav-cta-admissions"
-              className="px-2 py-2 rounded-full bg-brand-ochre text-white font-semibold text-sm hover:bg-brand-ochre/90 transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
+              className="px-2.5 py-2.5 rounded-full bg-brand-ochre text-white font-semibold text-sm hover:bg-brand-ochre/90 transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
             >
               <i className="fa-solid fa-paper-plane mr-2" aria-hidden="true" />
               Apply Now
@@ -91,7 +91,7 @@ export default function Navbar() {
                 {l.label}
               </NavLink>
             ))}
-            <Link to="/admissions" onClick={() => setOpen(false)} className="block px-2 py-2 rounded-lg bg-brand-ochre text-white font-semibold text-center">
+            <Link to="/admissions" onClick={() => setOpen(false)} className="block px-4 py-2 rounded-lg bg-brand-ochre text-white font-semibold text-center">
               <i className="fa-solid fa-paper-plane mr-2" aria-hidden="true" />
               Apply Now
             </Link>
