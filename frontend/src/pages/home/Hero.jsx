@@ -14,7 +14,7 @@ export default function Hero() {
     <section className="relative overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/assets/images/hero-campus.jpg')" }}"
+        style={{ backgroundImage: `url('${ASSETS.hero}')` }}
       />
       <div className="absolute inset-0 hero-gradient" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36 text-white">

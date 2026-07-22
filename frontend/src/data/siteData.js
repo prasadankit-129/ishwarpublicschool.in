@@ -1,16 +1,19 @@
+const publicUrl = process.env.REACT_APP_BASENAME || "";
+const asset = (path) => `${publicUrl}${path}`;
+
 export const ASSETS = {
-  hero: "/assets/images/hero-campus.jpg",
-  classroom: "/assets/images/classroom.jpg",
-  sports: "/assets/images/sports.jpg",
-  academics: "/assets/images/academics.jpg",
-  faculty: "/assets/images/faculty.jpg",
-  admissions: "/assets/images/admissions.jpg",
-  celebration: "/assets/images/celebration.jpg",
-  building: "/assets/images/building.jpg",
-  students: "/assets/images/students.jpg",
-  library: "/assets/images/library.jpg",
-  scienceLab: "/assets/images/science-lab.jpg",
-  annualFunction: "/assets/images/annual-function.jpg",
+  hero: asset("/assets/images/hero-campus.jpg"),
+  classroom: asset("/assets/images/classroom.jpg"),
+  sports: asset("/assets/images/sports.jpg"),
+  academics: asset("/assets/images/academics.jpg"),
+  faculty: asset("/assets/images/faculty.jpg"),
+  admissions: asset("/assets/images/admissions.jpg"),
+  celebration: asset("/assets/images/celebration.jpg"),
+  building: asset("/assets/images/building.jpg"),
+  students: asset("/assets/images/students.jpg"),
+  library: asset("/assets/images/library.jpg"),
+  scienceLab: asset("/assets/images/science-lab.jpg"),
+  annualFunction: asset("/assets/images/annual-function.jpg"),
 };
 
 export const SCHOOL = {
