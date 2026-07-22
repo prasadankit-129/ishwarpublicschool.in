@@ -22,7 +22,7 @@ export const SCHOOL = {
   established: 2002,
   email: "admin@ishwarpublicschool.com",
   enquiryEmail: "admin@ishwarpublicschool.com",
-  phone: "+91 9424197068",
+  phone: "+919424197068",
   phoneRaw: "+919424197068",
   whatsapp: "https://wa.me/+919424197068",
   mapUrl: "https://maps.app.goo.gl/eaGtbmW9fF72WxVv6",
